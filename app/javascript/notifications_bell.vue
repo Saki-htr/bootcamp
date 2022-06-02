@@ -25,7 +25,7 @@ li.header-links__item(v-bind:class='hasCountClass')
             :href='notification.path'
           )
             .header-notifications-item__body
-              img.header-notifications-item__user-icon.a-user-icon(
+              img.header-notifications-item__user-icon.a-user-icon.is-sm(
                 :src='notification.sender.avatar_url'
               )
               .header-notifications-item__message
