@@ -75,9 +75,13 @@ import AdminCompanies from '../components/admin_companies.vue'
 import Announcements from '../components/announcements.vue'
 import Books from '../components/books.vue'
 import Pages from '../components/pages.vue'
+<<<<<<< HEAD
 import Questions from '../components/questions.vue'
 import WorriedUsers from '../components/worried-users.vue'
 import Reports from '../components/reports.vue'
+=======
+import Footprints from '../components/footprints.vue'
+>>>>>>> 決め打ちのデータでfootprintコンポーネントを作成
 
 const mounter = new VueMounter()
 mounter.addComponent(Hello)
@@ -85,7 +89,11 @@ mounter.addComponent(AdminCompanies)
 mounter.addComponent(Announcements)
 mounter.addComponent(Books)
 mounter.addComponent(Pages)
+<<<<<<< HEAD
 mounter.addComponent(Questions)
 mounter.addComponent(WorriedUsers)
 mounter.addComponent(Reports)
+=======
+mounter.addComponent(Footprints)
+>>>>>>> 決め打ちのデータでfootprintコンポーネントを作成
 mounter.mount()
