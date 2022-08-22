@@ -29,7 +29,7 @@ class CurrentUserController < ApplicationController
       experience prefecture_code company_id
       nda avatar trainee
       mail_notification job_seeker tag_list
-      after_graduation_hope training_ends_on
+      after_graduation_hope training_ends_on rss_url
     ]
     user_attribute.push(:retired_on, :graduated_on, :free, :github_collaborator) if current_user.admin?
     params.require(:user).permit(user_attribute)

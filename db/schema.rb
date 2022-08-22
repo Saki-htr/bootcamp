@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_05_085844) do
+ActiveRecord::Schema.define(version: 2022_08_22_140251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -401,6 +401,16 @@ ActiveRecord::Schema.define(version: 2022_07_05_085844) do
     t.index ["user_id"], name: "index_reactions_on_user_id"
   end
 
+  create_table "regular_event_participations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "regular_event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["regular_event_id"], name: "index_regular_event_participations_on_regular_event_id"
+    t.index ["user_id", "regular_event_id"], name: "index_user_id_and_regular_event_id", unique: true
+    t.index ["user_id"], name: "index_regular_event_participations_on_user_id"
+  end
+
   create_table "regular_event_repeat_rules", force: :cascade do |t|
     t.bigint "regular_event_id"
     t.integer "frequency", null: false
@@ -418,9 +428,9 @@ ActiveRecord::Schema.define(version: 2022_07_05_085844) do
     t.boolean "hold_national_holiday", null: false
     t.time "start_at", null: false
     t.time "end_at", null: false
+    t.boolean "wip", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "wip", default: false, null: false
     t.integer "category", default: 0, null: false
     t.index ["user_id"], name: "index_regular_events_on_user_id"
   end
@@ -537,6 +547,7 @@ ActiveRecord::Schema.define(version: 2022_07_05_085844) do
     t.integer "last_sad_report_id"
     t.datetime "last_activity_at"
     t.datetime "hibernated_at"
+    t.string "rss_url"
     t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["github_id"], name: "index_users_on_github_id", unique: true
@@ -590,6 +601,8 @@ ActiveRecord::Schema.define(version: 2022_07_05_085844) do
   add_foreign_key "products", "users"
   add_foreign_key "questions", "practices"
   add_foreign_key "reactions", "users"
+  add_foreign_key "regular_event_participations", "regular_events"
+  add_foreign_key "regular_event_participations", "users"
   add_foreign_key "regular_event_repeat_rules", "regular_events"
   add_foreign_key "regular_events", "users"
   add_foreign_key "report_templates", "users"
