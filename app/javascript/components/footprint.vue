@@ -14,7 +14,7 @@ export default {
     footprint: { type: Object, required: true }
   },
   computed: {
-  	roleClass() {
+    roleClass() {
       return `is-${this.footprint.user.primary_role}`
     }
   }

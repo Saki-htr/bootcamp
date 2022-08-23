@@ -9,18 +9,18 @@
   ul.user-icons__items
     footprint(
       v-for='footprint in displayOnPage',
-      :key='footprint.key'
+      :key='footprint.key',
       :footprint='footprint'
     )
   .page-content-prev-next__item-link(
-    v-if='(footprintTotalCount > 3) && isDisplay',
-    @click="showRemainingFootprints"
-    )
-    | その他{{ (footprintTotalCount - 3) }}人
+    v-if='footprintTotalCount > 3 && isDisplay',
+    @click='showRemainingFootprints'
+  )
+    | その他{{ footprintTotalCount - 3 }}人
   ul.user-icons__items(v-else)
     footprint(
       v-for='footprint in displayAfterClickingOnLink',
-      :key='footprint.key'
+      :key='footprint.key',
       :footprint='footprint'
     )
 </template>
@@ -30,11 +30,11 @@ import Footprint from './footprint'
 export default {
   name: 'Footprints',
   components: {
-    footprint: Footprint,
+    footprint: Footprint
   },
   props: {
     footprintableId: { type: String, required: true },
-    footprintableType: { type: String, required: true },
+    footprintableType: { type: String, required: true }
   },
   data() {
     return {
@@ -69,8 +69,7 @@ export default {
       return meta ? meta.getAttribute('content') : ''
     },
     getFootprints() {
-      fetch(this.url,
-      {
+      fetch(this.url, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
@@ -99,4 +98,4 @@ export default {
     }
   }
 }
-</script> 
+</script>
