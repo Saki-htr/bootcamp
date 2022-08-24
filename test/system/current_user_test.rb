@@ -171,4 +171,23 @@ class CurrentUserTest < ApplicationSystemTestCase
 
     assert_not user.reload.github_collaborator
   end
+
+  test 'strip exif from avatar when user add avatar' do
+    visit_with_auth '/current_user/edit', 'komagata'
+    image_path = Rails.root.join('test/fixtures/files/users/avatars/contain_exif.jpg')
+    attach_file('user[avatar]', image_path, make_visible: true)
+    click_on '更新する'
+    user = users(:komagata)
+    image = MiniMagick::Image.read(user.avatar.download)
+    assert image.exif.empty?
+  end
+
+  test 'rename avatar when user add avatar' do
+    visit_with_auth '/current_user/edit', 'komagata'
+    image_path = Rails.root.join('test/fixtures/files/users/avatars/contain_exif.jpg')
+    attach_file('user[avatar]', image_path, make_visible: true)
+    click_on '更新する'
+    user = users(:komagata)
+    assert_not_equal user.avatar.filename.to_s, 'contain_exif.jpg'
+  end
 end
