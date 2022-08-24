@@ -63,10 +63,10 @@ class UsersController < ApplicationController
       create_user!
     end
 
-    if @user.errors.empty?
-      @user.strip_avatar_exif
-      @user.rename_avatar
-    end
+    return unless @user.errors.empty?
+
+    @user.strip_avatar_exif
+    @user.rename_avatar
   end
 
   private

@@ -659,7 +659,7 @@ class User < ApplicationRecord
     pages.wip.exists? || reports.wip.exists? || questions.wip.exists? ||
       products.wip.exists? || announcements.wip.exists? || events.wip.exists?
   end
-  
+
   def strip_avatar_exif
     return unless avatar.attached?
 
