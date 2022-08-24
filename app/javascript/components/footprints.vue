@@ -1,8 +1,9 @@
 <template lang="pug">
 .user-icons
-  .empty(v-if='footprints === null')
-    .fa-solid.fa-spinner.fa-pulse
-    | ロード中
+  h3.user-icons__title(v-if='!loaded')
+      .fa-solid.fa-spinner.fa-pulse
+      |
+      | ロード中
   h3.user-icons__title(v-else-if='footprintTotalCount !== 0')
     | 見たよ
   ul.user-icons__items(v-if='footprintTotalCount < 10')
@@ -45,7 +46,8 @@ export default {
     return {
       footprints: [],
       isDisplay: true,
-      footprintTotalCount: null
+      footprintTotalCount: null,
+      loaded: null
     }
   },
   computed: {
@@ -90,6 +92,7 @@ export default {
             this.footprints.push(footprint)
           })
           this.footprintTotalCount = json.footprint_total_count
+          this.loaded = true
         })
         .catch((error) => {
           console.warn(error)
