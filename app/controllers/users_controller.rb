@@ -62,6 +62,11 @@ class UsersController < ApplicationController
     else
       create_user!
     end
+
+    if @user.errors.empty?
+      @user.strip_avatar_exif
+      @user.rename_avatar
+    end
   end
 
   private
@@ -75,7 +80,6 @@ class UsersController < ApplicationController
 
   def create_free_user!
     if @user.save
-      @user.rename_avatar_and_strip_exif_data
       UserMailer.welcome(@user).deliver_now
       notify_to_mentors(@user)
       notify_to_chat(@user)
@@ -116,7 +120,6 @@ class UsersController < ApplicationController
       @user.subscription_id = subscription['id']
 
       if @user.save
-        @user.rename_avatar_and_strip_exif_data
         UserMailer.welcome(@user).deliver_now
         notify_to_mentors(@user)
         notify_to_chat(@user)
