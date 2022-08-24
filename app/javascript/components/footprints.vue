@@ -2,24 +2,29 @@
 .user-icons
   .empty(v-if='footprints === null')
     .fa-solid.fa-spinner.fa-pulse
-    |
     | ロード中
   h3.user-icons__title(v-else-if='footprintTotalCount !== 0')
     | 見たよ
-  ul.user-icons__items
+  ul.user-icons__items(v-if='footprintTotalCount < 10')
     footprint(
-      v-for='footprint in displayOnPage',
+      v-for='footprint in footprints',
+      :key='footprint.key',
+      :footprint='footprint'
+    )
+  ul.user-icons__items(v-else-if='footprintTotalCount > 10 && isDisplay')
+    footprint(
+      v-for='footprint in limitedDisplayOnPage',
       :key='footprint.key',
       :footprint='footprint'
     )
   .page-content-prev-next__item-link(
-    v-if='footprintTotalCount > 3 && isDisplay',
+    v-if='footprintTotalCount > 10 && isDisplay',
     @click='showRemainingFootprints'
   )
-    | その他{{ footprintTotalCount - 3 }}人
-  ul.user-icons__items(v-else)
+    | その他{{ footprintTotalCount - 10 }}人
+  ul.user-icons__items(v-else-if='footprintTotalCount > 10 && !isDisplay')
     footprint(
-      v-for='footprint in displayAfterClickingOnLink',
+      v-for='footprint in footprints',
       :key='footprint.key',
       :footprint='footprint'
     )
@@ -50,11 +55,8 @@ export default {
       params.set('footprintableId', this.footprintableId)
       return `/api/footprints.json?footprintable_type=${this.footprintableType}&footprintable_id=${this.footprintableId}`
     },
-    displayOnPage() {
-      return this.footprints.slice(0, 3)
-    },
-    displayAfterClickingOnLink() {
-      return this.footprints.slice(3)
+    limitedDisplayOnPage() {
+      return this.footprints.slice(0, 10)
     }
   },
   created() {
