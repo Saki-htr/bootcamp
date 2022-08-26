@@ -10,7 +10,7 @@ module MetaTagsHelper
       description: '現場の即戦力になれるプログラミングスクール。',
       viewport: 'width=device-width, initial-scale=1.0',
       og: {
-        title: :title,
+        title: 'FJORD BOOT CAMP（フィヨルドブートキャンプ）',
         type: 'website',
         site_name: 'fjord bootcamp',
         description: :description,
@@ -18,6 +18,10 @@ module MetaTagsHelper
         url: 'https://bootcamp.fjord.jp'
       },
       twitter: {
+        title: 'FJORD BOOT CAMP（フィヨルドブートキャンプ）',
+        text: {
+          title: 'FJORD BOOT CAMP（フィヨルドブートキャンプ）'
+        },
         card: 'summary',
         site: '@fjordbootcamp',
         description: :description,
