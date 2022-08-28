@@ -295,7 +295,7 @@ export default {
       ) {
         return null
       } else {
-        this.createComment({ toast: '提出物を確認済みにしました。'})
+        this.createComment({ toast: '提出物を確認済みにしました。' })
         this.check(
           this.commentableType,
           this.commentableId,
