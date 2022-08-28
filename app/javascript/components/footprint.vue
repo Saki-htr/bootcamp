@@ -1,5 +1,5 @@
 <template lang="pug">
-.user-icons__item
+li.user-icons__item
   a.user-icons__item-link(:href='`${footprint.user.url}`')
     img.a-user-icon.is-sm(
       :title='footprint.user.icon_title',
