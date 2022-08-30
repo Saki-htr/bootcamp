@@ -660,18 +660,12 @@ class User < ApplicationRecord
       products.wip.exists? || announcements.wip.exists? || events.wip.exists?
   end
 
-  def strip_avatar_exif
+  def rename_avatar_and_strip_exif
     return unless avatar.attached?
 
     image = MiniMagick::Image.read(avatar.download)
     image.strip
     avatar.attach(io: File.open(image.path), filename: SecureRandom.uuid)
-  end
-
-  def rename_avatar
-    return unless avatar.attached?
-
-    avatar.filename = SecureRandom.uuid
   end
 
   private

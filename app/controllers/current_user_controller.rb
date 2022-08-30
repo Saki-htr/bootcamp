@@ -10,8 +10,7 @@ class CurrentUserController < ApplicationController
 
   def update
     if @user.update(user_params)
-      @user.strip_avatar_exif
-      @user.rename_avatar
+      @user.rename_avatar_and_strip_exif
       redirect_to @user, notice: 'ユーザー情報を更新しました。'
     else
       render 'edit'

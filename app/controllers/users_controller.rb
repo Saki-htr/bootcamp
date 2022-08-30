@@ -65,8 +65,7 @@ class UsersController < ApplicationController
 
     return unless @user.errors.empty?
 
-    @user.strip_avatar_exif
-    @user.rename_avatar
+    @user.rename_avatar_and_strip_exif
   end
 
   private
