@@ -666,6 +666,8 @@ class User < ApplicationRecord
     image = MiniMagick::Image.read(avatar.download)
     image.strip
     avatar.attach(io: File.open(image.path), filename: SecureRandom.uuid)
+  rescue ActiveStorage::FileNotFoundError
+    false
   end
 
   private

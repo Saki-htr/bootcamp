@@ -302,7 +302,8 @@ class ArticlesTest < ApplicationSystemTestCase
     visit articles_path
     click_on 'test'
 
-    assert_selector "img[src$='komagata.jpg']"
+    user = users(:komagata)
+    assert_selector "img[src$='#{user.avatar.filename}']"
   end
 
   test 'WIP articles are not included in recent articles' do
