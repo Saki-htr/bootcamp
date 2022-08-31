@@ -19,7 +19,7 @@ export default {
       } else if (this.commentableType === 'Report') {
         return this.getToastMessage('日報')
       } else {
-        return null
+        return 'コメントを投稿しました！'
       }
     },
     getToastMessage(type) {
