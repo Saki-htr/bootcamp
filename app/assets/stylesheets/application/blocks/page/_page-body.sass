@@ -4,6 +4,13 @@
     +padding(vertical, 1.125rem)
   .page-header + &
     border-top: solid 1px $border-shade
+  &.is-users
+    // TODO 暫定的な対応
+    +media-breakpoint-up(lg)
+      margin-top: -2rem
+      padding-top: 0
+      .loading
+        margin-top: 3.5rem
 
 .page-body__inner
   position: relative
