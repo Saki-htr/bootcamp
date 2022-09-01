@@ -295,7 +295,7 @@ export default {
       ) {
         return null
       } else {
-        this.createComment(this.toastMessage())
+        this.createComment({ toast : this.toastMessage() })
         this.check(
           this.commentableType,
           this.commentableId,
