@@ -11,7 +11,7 @@ http_interactions:
       - Stripe/v1 RubyBindings/4.5.0
       Authorization:
       - Bearer sk_test_XLP1Ajz1JvT9jUt5uKGvL0Wd
-      Content-Type:
+      Content-Type: ##わいわい
       - application/x-www-form-urlencoded
       Stripe-Version:
       - '2018-11-08'
