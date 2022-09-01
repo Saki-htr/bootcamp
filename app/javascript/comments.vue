@@ -203,7 +203,7 @@ export default {
           }
         })
     },
-    createComment() {
+    createComment({ toast = null }) {
       if (this.description.length < 1) {
         return null
       }
@@ -235,7 +235,7 @@ export default {
           this.tab = 'comment'
           this.buttonDisabled = false
           this.resizeTextarea()
-          this.toast(this.toastMessage())
+          this.toast(toast ?? 'コメントを投稿しました！')
         })
         .catch((error) => {
           console.warn(error)
@@ -295,7 +295,7 @@ export default {
       ) {
         return null
       } else {
-        this.createComment()
+        this.createComment(this.toastMessage())
         this.check(
           this.commentableType,
           this.commentableId,
