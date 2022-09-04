@@ -1,0 +1,21 @@
+# on:
+#   push:
+#     branches:
+#       - main
+on:
+  issues:
+    types:
+      - assigned
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create GitHub dispatch event
+      run: |
+        curl --request POST 'https://api.github.com/repos/Saki-htr/fjord-choice/dispatches' \
+        --header 'Authorization: Bearer ${{secrets.API_REQUEST_TOKEN}}' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{
+          "event_type": "bootcamp-issue-assigned"
+        }'
