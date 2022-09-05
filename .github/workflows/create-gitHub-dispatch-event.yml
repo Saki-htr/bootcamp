@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Create GitHub dispatch event
         run: |
-          curl --request POST 'https://api.github.com/repos/Saki-htr/bootcamp-sample/dispatches' \
+          curl --request POST 'https://api.github.com/repos/Saki-htr/fjord-choice/dispatches' \
           --header 'Authorization: Bearer ${{secrets.API_REQUEST_TOKEN}}' \
           --header 'Content-Type: application/json' \
           --data-raw '{
