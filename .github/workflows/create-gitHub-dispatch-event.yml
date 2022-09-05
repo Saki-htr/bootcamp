@@ -20,5 +20,3 @@ jobs:
           --data-raw '{
             "event_type": "bootcamp-issue-assigned"
           }'
-      - uses: actions/checkout@v1
-        run: cat ${{ github.event }}
