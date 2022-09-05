@@ -13,15 +13,11 @@ jobs:
     steps:
       - name: Create GitHub dispatch event
         uses: peter-evans/repository-dispatch@v2
-        with:
-          token: ${{ secrets.API_REQUEST_TOKEN }}
-          repository: Saki-htr/fjord-choice
-          event-type: bootcamp-issue-assigned
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
-        # run: |
-        #   curl --request POST 'https://api.github.com/repos/Saki-htr/fjord-choice/dispatches' \
-        #   --header 'Authorization: Bearer ${{secrets.API_REQUEST_TOKEN}}' \
-        #   --header 'Content-Type: application/json' \
-        #   --data-raw '{
-        #     "event_type": "bootcamp-issue-assigned"
-        #   }'
+        run: |
+          curl --request POST 'https://api.github.com/repos/Saki-htr/fjord-choice/dispatches' \
+          --header 'Authorization: Bearer ${{secrets.API_REQUEST_TOKEN}}' \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+            "event_type": "bootcamp-issue-assigned"
+          }'
+      - run: cat ${{ github.event }}
