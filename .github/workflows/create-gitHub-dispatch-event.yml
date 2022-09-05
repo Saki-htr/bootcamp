@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create GitHub dispatch event
-        uses: peter-evans/repository-dispatch@v2
         run: |
           curl --request POST 'https://api.github.com/repos/Saki-htr/fjord-choice/dispatches' \
           --header 'Authorization: Bearer ${{secrets.API_REQUEST_TOKEN}}' \
