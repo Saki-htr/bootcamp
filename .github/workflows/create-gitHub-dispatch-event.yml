@@ -13,7 +13,7 @@ jobs:
         ISSUE: ${{ github.event.issue}}
         ISSUE_TITLE: ${{ github.event.issue.title}}
         ISSUE_LINK: ${{ github.event.issue.html_url }}
-      run: echo -ne "${TITLE}\n${ISSUE_TITLE}\n${ISSUE_LINK}" > contents
+      run: echo ${ISSUE}
 
     # - name: Create messages for new comments
     #   if: github.event_name == 'issue_comment' && github.event.action == 'created'
