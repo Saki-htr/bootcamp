@@ -13,7 +13,7 @@ jobs:
         ISSUE_LABELS: ${{ github.event.issue.labels }}
         ISSUE_LABELS_NAME: ${{ github.event.issue.labels.name }}
         ISSUE_ASSIGNEES: ${{ github.event.issue.assignees }}
-      # run: echo "${{ github.event.issue}}"
+      run: echo "${{ github.event.issue.labels}}"
 
     # - name: Create messages for new comments
     #   if: github.event_name == 'issue_comment' && github.event.action == 'created'
