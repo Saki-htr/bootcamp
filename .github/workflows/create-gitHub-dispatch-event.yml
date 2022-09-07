@@ -11,7 +11,6 @@ jobs:
       env:
         ISSUE_NUMBER: ${{ github.event.issue.number}}
         ISSUE_LABELS: ${{ github.event.issue.labels }}
-        ISSUE_LABELS_NAME: ${{ github.event.issue.labels.name }}
         ISSUE_ASSIGNEES: ${{ github.event.issue.assignees }}
       run: echo "${{ github.event.issue.title}}"
 
