@@ -9,10 +9,10 @@ jobs:
     - name: get assigned issue event
       if: github.event_name == 'issues' && github.event.action == 'assigned'
       env:
-        ISSUE_NUMBER: ${{ github.event.issue.number}}
+        ISSUE_NUMBER: ${{ github.event.issue.number }}
         ISSUE_LABELS: ${{ github.event.issue.labels }}
         ISSUE_ASSIGNEES: ${{ github.event.issue.assignees }}
-      run: echo "${{ github.event.issue.title}}"
+      run: echo "${ISSUE_NUMBER}"
 
     # - name: Create messages for new comments
     #   if: github.event_name == 'issue_comment' && github.event.action == 'created'
