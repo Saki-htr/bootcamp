@@ -9,8 +9,8 @@ jobs:
     - name: get assigned issue event
       if: github.event_name == 'issues' && github.event.action == 'assigned'
       env:
-        ISSUE_LABELS: ${{ toJson(github.event.issue.labels.*.name) }}
-      run: echo "${ISSUE_LABELS}"
+        ISSUE_ASSIGNEES: ${{ toJson(github.event.issue.assignees.*.id) }}
+      run: echo "${ISSUE_ASSIGNEES}"
 
     # - name: Create messages for new comments
     #   if: github.event_name == 'issue_comment' && github.event.action == 'created'
