@@ -1,7 +1,6 @@
 on:
   issues:
-    types:
-      - assigned
+    types: assigned
 
 jobs:
   notify_line:
@@ -10,10 +9,9 @@ jobs:
     - name: get assigned issue event
       if: github.event_name == 'issues' && github.event.action == 'assigned'
       env:
-        ISSUE: ${{ github.event.issue}}
         ISSUE_TITLE: ${{ github.event.issue.title}}
         ISSUE_LINK: ${{ github.event.issue.html_url }}
-      run: echo "${ISSUE}""
+      run: echo "${ISSUE_TITLE}"
 
     # - name: Create messages for new comments
     #   if: github.event_name == 'issue_comment' && github.event.action == 'created'
