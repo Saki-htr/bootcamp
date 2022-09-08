@@ -13,9 +13,9 @@ jobs:
       run: |
         curl -X POST https://fjord-choice.herokuapp.com \
              -H 'Content-Type: application/json' \
-             -d '{"assignees":"${ISSUE_ASSIGNEES}"}'
-      # run: curl "${ISSUE_ASSIGNEES}"
-
+             -d '{"assignees":"'${ISSUE_ASSIGNEES}'"}'
+      # -d '{"ref":"master", "inputs":{"env":"'${env}'","year":"'${year}'", "month":"'${month}'", "day":"'${day}'", "hour":"'${hour}'"}}'
+     
     # - name: Create messages for new comments
     #   if: github.event_name == 'issue_comment' && github.event.action == 'created'
     #   env:
