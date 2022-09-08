@@ -28,8 +28,8 @@ jobs:
     #   env:
     #     LINE_TOKEN: ${{ secrets.LINE_TOKEN}}
     #     URL: https://notify-api.line.me/api/notify
-      run: |
-        curl -X POST \
-             -H "Authorization: Bearer ${LINE_TOKEN}" \
-             --data-urlencode message@contents \
-             ${URL}
+      # run: |
+      #   curl -X POST \
+      #        -H "Authorization: Bearer ${LINE_TOKEN}" \
+      #        --data-urlencode message@contents \
+      #        ${URL}
