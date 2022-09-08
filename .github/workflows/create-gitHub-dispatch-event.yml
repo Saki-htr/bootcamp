@@ -13,7 +13,7 @@ jobs:
       run: |
         curl -X POST https://fjord-choice.herokuapp.com \
              -H 'Content-Type: application/json' \
-             -d '{"assignees":"'${ISSUE_ASSIGNEES}'"}'
+             -d '{"assignees": ${{ toJson(github.event.issue.assignees.*.id) }} }'
       # -d '{"ref":"master", "inputs":{"env":"'${env}'","year":"'${year}'", "month":"'${month}'", "day":"'${day}'", "hour":"'${hour}'"}}'
      
     # - name: Create messages for new comments
