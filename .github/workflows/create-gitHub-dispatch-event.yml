@@ -10,7 +10,7 @@ jobs:
       if: github.event_name == 'issues' && github.event.action == 'assigned'
       env:
         ISSUE_ASSIGNEES: ${{ toJson(github.event.issue.assignees.*.id) }}
-      run: curl -X POST -H "Content-Type: application/json" -d '{"assignees":${ISSUE_ASSIGNEES}}' https://xxxxx.net/xxxxxx
+      run: curl -X POST -H "Content-Type: application/json" -d '{"assignees":${ISSUE_ASSIGNEES}}' https://fjord-choice.herokuapp.com
       # run: curl "${ISSUE_ASSIGNEES}"
 
     # - name: Create messages for new comments
