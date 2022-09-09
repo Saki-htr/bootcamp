@@ -3,12 +3,10 @@ on:
     types: [assigned, unassigned, labeled, unlabeled]
 
 jobs:
-  notify_line:
+  post_issue_event:
     runs-on: ubuntu-latest
     steps:
-    - name: get assigned issue event
-      env:
-        ISSUE_ASSIGNEES: ${{ toJson(github.event.issue.assignees.*.id) }}
+    - name: post assigned issue event
       run: |
         curl -X POST https://fjord-choice.herokuapp.com/api/issues \
              -H 'Content-Type: application/json' \

@@ -1,0 +1,17 @@
+on:
+  issues:
+    types: review_requested
+
+jobs:
+  post_pr_event:
+    runs-on: ubuntu-latest
+    steps:
+    - name: post review requested pr event
+      run: |
+        curl -X POST https://fjord-choice.herokuapp.com/api/pulls \
+             -H 'Content-Type: application/json' \
+             -d '{"number": ${{ github.event.pull_request.number }},
+                  "title": ${{ github.event.pull_request.title }},
+                  "state": ${{ github.event.pull_request.state }},
+                  "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }}
+                  }'
