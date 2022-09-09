@@ -6,6 +6,7 @@ on:
 
 jobs:
   post_pr_event:
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
     - name: post review requested pr event
@@ -17,17 +18,14 @@ jobs:
                   "state": ${{ toJson(github.event.pull_request.state) }},
                   "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }}
                   }'
-  update_only_when_reviewer_approved:
-    if: github.event.review.state == 'approved'
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ toJson(github.event.review) }}
-      # - run: |
-      #   curl -X POST https://fjord-choice.herokuapp.com/api/pulls \
-      #        -H 'Content-Type: application/json' \
-      #        -d '{"title": ${{ toJson(github.event.pull_request.title) }},
-      #             "number": ${{ github.event.pull_request.number }},
-      #             "state": ${{ toJson(github.event.pull_request.state) }},
-      #             "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }}
-      #             }'
+  # update_only_when_reviewer_approved:
+    
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: |
+  #       curl -X POST https://fjord-choice.herokuapp.com/api/pulls \
+  #            -H 'Content-Type: application/json' \
+  #            -d '{"review_state": ${{ toJson(github.event.review.state) }},
+  #                 "reviewers": ${{ toJson(github.event.review.user.*.id) }}
+  #                 }'
 
