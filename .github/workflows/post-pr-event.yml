@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [review_request_removed]
+    types: [review_requested, review_request_removed]
 
 jobs:
   post_pr_event:
