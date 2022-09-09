@@ -1,7 +1,7 @@
 on:
   pull_request:
-    types: [review_requested, review_request_removed]
-
+    types: [review_requested, review_request_removed, closed]
+  
 jobs:
   post_pr_event:
     runs-on: ubuntu-latest
