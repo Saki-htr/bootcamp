@@ -14,7 +14,7 @@ jobs:
         curl -X POST https://fjord-choice.herokuapp.com \
              -H 'Content-Type: application/json' \
              -d '{"number": ${{ github.event.issue.number }},
-                  "labels": ${{ toJson(github.event.issue.labels) }}.
+                  "labels": ${{ toJson(github.event.issue.labels.*.name) }},
                   "assignees": ${{ toJson(github.event.issue.assignees.*.id) }}
                   }'
       # -d '{"ref":"master", "inputs":{"env":"'${env}'","year":"'${year}'", "month":"'${month}'", "day":"'${day}'", "hour":"'${hour}'"}}'
