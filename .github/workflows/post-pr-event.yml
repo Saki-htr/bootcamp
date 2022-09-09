@@ -21,7 +21,7 @@ jobs:
     if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.review }}
+      - run: echo ${{ toJson(github.event.review) }}
       # - run: |
       #   curl -X POST https://fjord-choice.herokuapp.com/api/pulls \
       #        -H 'Content-Type: application/json' \
