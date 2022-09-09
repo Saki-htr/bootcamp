@@ -10,28 +10,9 @@ jobs:
       env:
         ISSUE_ASSIGNEES: ${{ toJson(github.event.issue.assignees.*.id) }}
       run: |
-        curl -X POST https://fjord-choice.herokuapp.com \
+        curl -X POST https://fjord-choice.herokuapp.com/api/issues \
              -H 'Content-Type: application/json' \
              -d '{"number": ${{ github.event.issue.number }},
                   "labels": ${{ toJson(github.event.issue.labels.*.name) }},
                   "assignees": ${{ toJson(github.event.issue.assignees.*.id) }}
                   }'
-      # -d '{"ref":"master", "inputs":{"env":"'${env}'","year":"'${year}'", "month":"'${month}'", "day":"'${day}'", "hour":"'${hour}'"}}'
-     
-    # - name: Create messages for new comments
-    #   if: github.event_name == 'issue_comment' && github.event.action == 'created'
-    #   env:
-    #     TITLE: ${{ github.event.sender.login}} がコメントしました
-    #     ISSUE_TITLE: ${{ github.event.issue.title}}
-    #     ISSUE_LINK: ${{ github.event.comment.html_url }}
-      # run: echo -ne "${TITLE}\n${ISSUE_TITLE}\n${ISSUE_LINK}" > contents
-
-    # - name: Run | Send LINE Notification
-    #   env:
-    #     LINE_TOKEN: ${{ secrets.LINE_TOKEN}}
-    #     URL: https://notify-api.line.me/api/notify
-      # run: |
-      #   curl -X POST \
-      #        -H "Authorization: Bearer ${LINE_TOKEN}" \
-      #        --data-urlencode message@contents \
-      #        ${URL}
