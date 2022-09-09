@@ -11,8 +11,8 @@ jobs:
         curl -X POST https://fjord-choice.herokuapp.com/api/pulls \
              -H 'Content-Type: application/json' \
              --data-urlencode '{"number": ${{ github.event.pull_request.number }},
-                  "state": ${{ github.event.pull_request.state }},
                   "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }}
                   }'
 
+# "state": ${{ github.event.pull_request.state }},
 #  "title": ${{ github.event.pull_request.title }},
