@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: get assigned issue event
-      # if: github.event_name == 'issues'
       env:
         ISSUE_ASSIGNEES: ${{ toJson(github.event.issue.assignees.*.id) }}
       run: |
