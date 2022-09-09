@@ -1,6 +1,6 @@
 on:
   issues:
-    types: review_requested
+    types: [review_requested]
 
 jobs:
   post_pr_event:
