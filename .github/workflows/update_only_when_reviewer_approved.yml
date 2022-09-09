@@ -1,12 +1,13 @@
 on:
-  pull_request:
-    types: [review_requested, review_request_removed]
+  pull_request_review:
+    types: [submitted]
 
 jobs:
-  post_pr_event:
+  update_only_when_reviewer_approved:
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
-    - name: post review requested pr event
+    - name: post approved pr event
       run: |
         curl -X POST https://fjord-choice.herokuapp.com/api/pulls \
              -H 'Content-Type: application/json' \
@@ -15,4 +16,3 @@ jobs:
                   "state": ${{ toJson(github.event.pull_request.state) }},
                   "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }}
                   }'
-
