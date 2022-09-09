@@ -1,6 +1,6 @@
 on:
   issues:
-    types: assigned
+    types: [assigned, unassigned, labeled, unlabeled]
 
 jobs:
   notify_line:
