@@ -1,4 +1,5 @@
-1つ目：2人目がReview Changesでcommentした
+2人目がReview Changesでcommentした
+
 
 [![Test](https://github.com/fjordllc/bootcamp/actions/workflows/test.yml/badge.svg)](https://github.com/fjordllc/bootcamp/actions/workflows/test.yml)
 [![Lint](https://github.com/fjordllc/bootcamp/actions/workflows/lint.yml/badge.svg)](https://github.com/fjordllc/bootcamp/actions/workflows/lint.yml)
