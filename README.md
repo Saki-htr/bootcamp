@@ -1,4 +1,4 @@
-6つ目：Sakiがreviewerとして登録されて、requested_changesした状態でマージされた
+
 
 [![Test](https://github.com/fjordllc/bootcamp/actions/workflows/test.yml/badge.svg)](https://github.com/fjordllc/bootcamp/actions/workflows/test.yml)
 [![Lint](https://github.com/fjordllc/bootcamp/actions/workflows/lint.yml/badge.svg)](https://github.com/fjordllc/bootcamp/actions/workflows/lint.yml)
