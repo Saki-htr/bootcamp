@@ -1,4 +1,4 @@
-5つ目：Sakiがreviewerとして登録されて、commentした状態でマージされた
+3つ目：2人目がReview ChangesでApprove した
 
 [![Test](https://github.com/fjordllc/bootcamp/actions/workflows/test.yml/badge.svg)](https://github.com/fjordllc/bootcamp/actions/workflows/test.yml)
 [![Lint](https://github.com/fjordllc/bootcamp/actions/workflows/lint.yml/badge.svg)](https://github.com/fjordllc/bootcamp/actions/workflows/lint.yml)
