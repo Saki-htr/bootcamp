@@ -136,10 +136,6 @@ GEM
     digest-crc (0.6.4)
       rake (>= 12.0.0, < 14.0.0)
     discord-notifier (1.0.3)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
     erubi (1.11.0)
     faraday (2.5.2)
       faraday-net_http (>= 2.0, < 3.1)
@@ -538,7 +534,6 @@ DEPENDENCIES
   dead_end
   diffy
   discord-notifier
-  dotenv-rails
   google-cloud-storage (~> 1.25)
   holiday_jp
   image_processing (~> 1.12)

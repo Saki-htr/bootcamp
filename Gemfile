@@ -64,7 +64,6 @@ group :development, :test do
   gem 'dead_end'
   gem 'pry-byebug'
   gem 'traceroute'
-  gem 'dotenv-rails'
 end
 
 group :development do
