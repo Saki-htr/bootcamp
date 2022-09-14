@@ -10,10 +10,10 @@ jobs:
       run: |
         curl -X POST https://fjord-choice.herokuapp.com/api/pulls \
              --header 'Content-Type: application/json' \
-             --header 'Authorization: Bearer ${{secrets.FJORD_CHOICE_TOKEN}}'
              -d '{"title": ${{ toJson(github.event.pull_request.title) }},
                   "number": ${{ github.event.pull_request.number }},
                   "state": ${{ toJson(github.event.pull_request.state) }},
-                  "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }}
+                  "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }},
+                  "token": ${{ secrets.FJORD_CHOICE_TOKEN }}
                   }'
 
