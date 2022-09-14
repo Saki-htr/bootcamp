@@ -13,7 +13,7 @@ jobs:
              -d '{"title": ${{ toJson(github.event.pull_request.title) }},
                   "number": ${{ github.event.pull_request.number }},
                   "state": ${{ toJson(github.event.pull_request.state) }},
-                  "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id)}},
-                  "token": ENV['TOKEN']
+                  "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }},
+                  "token": ${{ toJson(ENV['TOKEN']) }}
                   }'
 
