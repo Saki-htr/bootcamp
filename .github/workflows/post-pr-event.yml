@@ -14,6 +14,6 @@ jobs:
                   "number": ${{ github.event.pull_request.number }},
                   "state": ${{ toJson(github.event.pull_request.state) }},
                   "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }},
-                  "token": ${{ secrets.FJORD_CHOICE_TOKEN }}
+                  "token": ${{ toJson(secrets.FJORD_CHOICE_TOKEN) }}
                   }'
 
