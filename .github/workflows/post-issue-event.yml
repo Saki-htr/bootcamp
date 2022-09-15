@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: post assigned issue event
       run: |
-        curl -X POST http://localhost:3000/api/issues \
+        curl -X POST https://fjord-choice.herokuapp.com/api/issues \
              -H 'Content-Type: application/json' \
              -d '{"number": ${{ github.event.issue.number }},
                   "labels": ${{ toJson(github.event.issue.labels.*.name) }},
