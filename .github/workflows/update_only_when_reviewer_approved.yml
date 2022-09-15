@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: post approved pr event
       run: |
-        curl -X POST https://fjord-choice.herokuapp.com/api/pulls \
+        curl -X POST http://localhost:3000/api/pulls \
              -H 'Content-Type: application/json' \
              -d '{"title": ${{ toJson(github.event.pull_request.title) }},
                   "number": ${{ github.event.pull_request.number }},
