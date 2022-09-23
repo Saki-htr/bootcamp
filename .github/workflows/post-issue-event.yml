@@ -10,8 +10,8 @@ jobs:
       run: |
         curl -X POST https://fjord-choice.herokuapp.com/api/issues \
              -H 'Content-Type: application/json' \
+             -H 'Authorization: Token ${{ secrets.FJORD_CHOICE_TOKEN }}' \
              -d '{"number": ${{ github.event.issue.number }},
                   "labels": ${{ toJson(github.event.issue.labels.*.name) }},
-                  "assignees": ${{ toJson(github.event.issue.assignees.*.id) }},
-                  "token": ${{ toJson(secrets.FJORD_CHOICE_TOKEN) }}
+                  "assignees": ${{ toJson(github.event.issue.assignees.*.id) }}
                   }'
