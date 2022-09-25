@@ -15,7 +15,6 @@ jobs:
         with:
           base: production
           head: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.API_REQUEST_TOKEN}}
           labels: release
           assign: true
-Footer
