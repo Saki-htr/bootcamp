@@ -12,6 +12,6 @@ jobs:
              -H 'Content-Type: application/json' \
              -H 'Authorization: Token ${{ secrets.FJORD_CHOICE_TOKEN }}' \
              -d '{"number": ${{ github.event.issue.number }},
-                  "labels": ${{ toJson(github.event.issue.labels.*.name) }},
+                  "point": ${{ toJson(github.event.issue.labels.*.name) }},
                   "assignees": ${{ toJson(github.event.issue.assignees.*.id) }}
                   }'
