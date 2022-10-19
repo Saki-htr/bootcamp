@@ -13,5 +13,5 @@ jobs:
              -H 'Authorization: Token ${{ secrets.FJORD_CHOICE_TOKEN }}' \
              -d '{"number": ${{ github.event.issue.number }},
                   "point": ${{ toJson(github.event.issue.labels.*.name) }},
-                  "assignees": ${{ toJson(github.event.issue.assignees.*.id) }}
+                  "assignee_uids": ${{ toJson(github.event.issue.assignees.*.id) }}
                   }'

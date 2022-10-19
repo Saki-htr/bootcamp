@@ -15,5 +15,5 @@ jobs:
              -d '{"title": ${{ toJson(github.event.pull_request.title) }},
                   "number": ${{ github.event.pull_request.number }},
                   "state": ${{ toJson(github.event.pull_request.state) }},
-                  "reviewers": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }}
+                  "reviewer_uids": ${{ toJson(github.event.pull_request.requested_reviewers.*.id) }}
                   }'
