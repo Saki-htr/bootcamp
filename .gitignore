@@ -45,3 +45,6 @@ storage/
 yarn-debug.log*
 .yarn-integrity
 .envrc
+/test/reports
+
+.env
